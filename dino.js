@@ -2,7 +2,7 @@ import { incrementCustomProperty, setCustomProperty, getCustomProperty } from ".
 
 const dinoElem = document.querySelector("[data-dino]")
 const JUMP_SPEED = 0.5
-const GRAVITY = 0.0015
+const GRAVITY = 0.0018
 const DINO_FRAME_COUNT = 2
 const FRAME_TIME = 100
 
@@ -64,10 +64,8 @@ function handleJump(delta) {
 
 function onJump() {
   if (isJumping) return
-
-  // Play the jump sound
   const jumpSound = document.getElementById("jump-sound")
-  jumpSound.currentTime = 0 // Reset sound to the beginning
+  jumpSound.currentTime = 0 
   jumpSound.play()
 
   yVelocity = JUMP_SPEED

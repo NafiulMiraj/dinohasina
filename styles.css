@@ -9,23 +9,31 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0; /* Optional: Set a background color */
+  background-color: #f0f0f0; 
 }
 
 .world {
   overflow: hidden;
   position: relative;
-  background-color: #fff; /* Optional: Set a background color for the game area */
+  background-color: #fff; 
 }
 
 .start-screen {
   position: absolute;
-  font-size: 5vmin; /* Responsive font size */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
-  text-align: center; /* Optional: Center text */
-  padding: 10px; /* Optional: Add padding for better touch target */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.start-screen p {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
 
 .hide {
@@ -44,60 +52,75 @@ body {
   --bottom: 0;
   position: absolute;
   left: 1%;
-  height: 30%;
+  height: 35%; 
   bottom: calc(var(--bottom) * 1%);
+  max-height: 120px; 
 }
 
 .cactus {
   position: absolute;
   left: calc(var(--left) * 1%);
-  height: 30%;
+  height: 30%; 
   bottom: 0;
+  max-height: 100px; 
 }
 
-/* Score Container */
+
 .score-container {
   position: absolute;
   top: 10px;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%); 
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-  padding: 5px 10px; /* Adjusted padding for smaller screens */
+  padding: 5px 10px;
   color: #fff;
   font-family: 'Arial', sans-serif;
   display: flex;
   align-items: center;
-  gap: 5px; /* Adjusted gap for smaller screens */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow for better appearance */
+  gap: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
-/* Score Label */
 .score-label {
-  font-size: 1rem; /* Responsive font size */
+  font-size: 1rem; 
   font-weight: bold;
 }
 
-/* Score Value */
 .score-value {
-  font-size: 1.2rem; /* Responsive font size */
+  font-size: 1.2rem; 
   font-weight: bold;
-  color: #f0db4f; /* Yellow color for the score */
+  color: #f0db4f; 
 }
 
-/* Media Queries for Mobile Devices */
 @media (max-width: 600px) {
   .start-screen {
-    font-size: 6vmin; /* Adjust font size for smaller screens */
-    padding: 5px; /* Adjust padding for smaller screens */
+    font-size: 6vmin; 
+    padding: 10px; 
   }
 
   .score-container {
-    padding: 5px; /* Adjust padding for smaller screens */
-    gap: 5px; /* Adjust gap for smaller screens */
+    padding: 5px; 
+    gap: 5px; 
   }
 
   .score-label, .score-value {
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    font-size: 1rem; 
+  }
+
+  .dino {
+    height: 25%; 
+    max-height: 80px;
+  }
+
+  .cactus {
+    height: 25%; 
+    max-height: 80px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .world {
+    max-width: 1200px;
   }
 }

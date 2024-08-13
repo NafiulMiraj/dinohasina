@@ -57,7 +57,7 @@ function update(time) {
   updateSpeedScale(delta)
   updateSuccessfulJumps(jumpedCacti)
 
-  if (checkLose()) return handleEnd(false) // Pass false for losing
+  if (checkLose()) return handleEnd(false) 
   if (customMessageIndex >= customMessages.length) return handleEnd(true) // Pass true for winning after all messages are shown
 
   lastTime = time
@@ -96,7 +96,7 @@ function handleStart() {
   lastTime = null
   speedScale = 1
   successfulJumps = 0
-  customMessageIndex = 0 // Reset message index on start
+  customMessageIndex = 0 
   setupGround()
   setupDino()
   setupCactus()
@@ -104,17 +104,23 @@ function handleStart() {
   window.requestAnimationFrame(update)
 }
 
+
 function handleEnd(isWin) {
   if (isWin) {
-    successfulJumpsElem.textContent = "আপনি স্বাধীনতা লাভ করেছেন" // Display winner message after custom messages end
+    successfulJumpsElem.textContent = "আপনি স্বাধীনতা লাভ করেছেন"; 
+    const victorySound = document.getElementById("victory-sound");
+    victorySound.play();
   } else {
-    successfulJumpsElem.textContent = "আপনি পরাধীন" // Display game over message
-    setDinoLose()
+    successfulJumpsElem.textContent = "আপনি পরাধীন"; 
+    setDinoLose();
+    const loseSound = document.getElementById("lose-sound");
+    loseSound.play();
   }
+  
   setTimeout(() => {
-    document.addEventListener("click", handleStart, { once: true })
-    startScreenElem.classList.remove("hide")
-  }, 100)
+    document.addEventListener("click", handleStart, { once: true });
+    startScreenElem.classList.remove("hide");
+  }, 100);
 }
 
 function setPixelToWorldScale() {
@@ -127,16 +133,4 @@ function setPixelToWorldScale() {
 
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
-}
-function handleLose() {
-  setDinoLose()
-
-  // Play the losing sound
-  const loseSound = document.getElementById("lose-sound")
-  loseSound.play()
-
-  setTimeout(() => {
-    document.addEventListener("click", handleStart, { once: true })
-    startScreenElem.classList.remove("hide")
-  }, 100)
 }
