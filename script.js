@@ -111,7 +111,7 @@ function handleEnd(isWin) {
     const victorySound = document.getElementById("victory-sound");
     victorySound.play();
   } else {
-    successfulJumpsElem.textContent = "আপনি পরাধীন"; 
+    successfulJumpsElem.textContent = "Arrested! আপনি পরাধীন"; 
     setDinoLose();
     const loseSound = document.getElementById("lose-sound");
     loseSound.play();
