@@ -1,0 +1,103 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Optional: Set a background color */
+}
+
+.world {
+  overflow: hidden;
+  position: relative;
+  background-color: #fff; /* Optional: Set a background color for the game area */
+}
+
+.start-screen {
+  position: absolute;
+  font-size: 5vmin; /* Responsive font size */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  text-align: center; /* Optional: Center text */
+  padding: 10px; /* Optional: Add padding for better touch target */
+}
+
+.hide {
+  display: none;
+}
+
+.ground {
+  --left: 0;
+  position: absolute;
+  width: 300%;
+  bottom: 0;
+  left: calc(var(--left) * 1%);
+}
+
+.dino {
+  --bottom: 0;
+  position: absolute;
+  left: 1%;
+  height: 30%;
+  bottom: calc(var(--bottom) * 1%);
+}
+
+.cactus {
+  position: absolute;
+  left: calc(var(--left) * 1%);
+  height: 30%;
+  bottom: 0;
+}
+
+/* Score Container */
+.score-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 5px 10px; /* Adjusted padding for smaller screens */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjusted gap for smaller screens */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow for better appearance */
+}
+
+/* Score Label */
+.score-label {
+  font-size: 1rem; /* Responsive font size */
+  font-weight: bold;
+}
+
+/* Score Value */
+.score-value {
+  font-size: 1.2rem; /* Responsive font size */
+  font-weight: bold;
+  color: #f0db4f; /* Yellow color for the score */
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+  .start-screen {
+    font-size: 6vmin; /* Adjust font size for smaller screens */
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+  .score-container {
+    padding: 5px; /* Adjust padding for smaller screens */
+    gap: 5px; /* Adjust gap for smaller screens */
+  }
+
+  .score-label, .score-value {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+}
